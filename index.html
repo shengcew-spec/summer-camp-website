@@ -20,7 +20,7 @@
         nav { background: #fff; padding: 12px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 1px 10px rgba(0,0,0,0.05); }
         .nav-content { display: flex; justify-content: space-between; align-items: center; }
         .logo-box img { height: 48px; vertical-align: middle; }
-        .nav-links a { margin-left: 20px; text-decoration: none; color: var(--text-dark); font-weight: 500; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a { margin-left: 20px; text-decoration: none; color: var(--text-dark); font-weight: 500; font-size: 0.9rem; }
         .nav-links a:hover { color: var(--primary); }
 
         /* Hero */
@@ -29,49 +29,50 @@
         .hero p { font-size: 1.2rem; margin-top: 10px; opacity: 0.9; }
 
         /* Section Styling */
-        section { padding: 60px 0; border-bottom: 1px solid #f0f0f0; }
+        section { padding: 80px 0; }
         .section-title { text-align: center; margin-bottom: 50px; }
-        .section-title h2 { font-size: 2rem; color: var(--primary); margin-bottom: 5px; }
+        .section-title h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 5px; }
         .section-title span { color: var(--text-gray); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; }
-
-        /* About Section Style */
-        .about-content { font-size: 1.05rem; color: #444; max-width: 800px; margin: 0 auto; line-height: 1.8; text-align: justify; }
 
         /* Recruitment Cards */
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 35px; }
         .card { background: #fff; border-radius: 15px; padding: 35px; border: 1px solid #eee; transition: 0.3s; display: flex; flex-direction: column; }
         .card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.08); }
-        .card h3 { font-size: 1.5rem; margin: 0 0 20px 0; color: #000; border-bottom: 2px solid #f1f1f1; padding-bottom: 15px; }
-        .card h3 small { display: block; font-size: 0.85rem; color: var(--text-gray); font-weight: normal; margin-top: 5px; }
+        .card h3 { font-size: 1.6rem; margin: 0 0 25px 0; color: #000; border-bottom: 2px solid #f1f1f1; padding-bottom: 15px; }
+        .card h3 small { display: block; font-size: 0.9rem; color: var(--text-gray); font-weight: normal; margin-top: 5px; }
+       
         .detail-item { margin-bottom: 15px; }
         .detail-label { font-weight: bold; color: var(--primary); display: block; font-size: 1rem; }
         .detail-label em { font-style: normal; font-size: 0.8rem; color: var(--text-gray); font-weight: normal; margin-left: 5px; }
-        .detail-text { color: #555; font-size: 0.92rem; margin-top: 3px; display: block; }
+        .detail-text { color: #555; font-size: 0.95rem; margin-top: 3px; display: block; }
 
         .btn { display: block; padding: 14px; border-radius: 10px; text-decoration: none; font-weight: bold; text-align: center; margin-top: 20px; transition: 0.3s; }
         .btn-blue { background: var(--primary); color: #fff; }
         .btn-green { background: var(--secondary); color: #fff; }
 
-        /* Video Matrix */
+        /* Impact Section: 4 Videos + Gallery */
         .impact-bg { background: var(--bg-light); }
         .video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 40px; }
         .video-item { position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.1); background: #000; }
         .video-item img { width: 100%; height: 250px; object-fit: cover; opacity: 0.8; display: block; transition: 0.3s; }
         .video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; text-decoration: none; }
-        .play-icon { width: 55px; height: 55px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; transition: 0.3s; }
+        .play-icon { width: 55px; height: 55px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
         .video-title { font-weight: bold; font-size: 1rem; text-shadow: 0 2px 4px rgba(0,0,0,0.5); text-align: center; }
+        .video-title span { display: block; font-size: 0.8rem; font-weight: normal; margin-top: 4px; opacity: 0.9; }
 
-        /* Contact Section Style */
-        .contact-box { text-align: center; background: #fff; padding: 40px; border-radius: 15px; border: 1px solid #eee; max-width: 600px; margin: 0 auto; }
-        .contact-item { margin-bottom: 20px; font-size: 1.1rem; }
-        .contact-item strong { color: var(--primary); display: block; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+        .gallery-item { height: 180px; border-radius: 10px; overflow: hidden; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Contact Section */
+        .contact-box { text-align: center; max-width: 600px; margin: 0 auto; background: #fff; padding: 40px; border-radius: 15px; border: 1px solid #eee; }
 
         footer { background: #2d3436; color: rgba(255,255,255,0.6); padding: 50px 0; text-align: center; font-size: 0.9rem; }
         .footer-logo { height: 40px; filter: brightness(0) invert(1); opacity: 0.7; margin-bottom: 20px; }
 
         @media (max-width: 850px) {
             .grid, .video-grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2.2rem; }
+            .gallery-grid { grid-template-columns: 1fr 1fr; }
         }
     </style>
 </head>
@@ -84,9 +85,9 @@
         </a>
         <div class="nav-links">
             <a href="#about">项目介绍 / About</a>
-            <a href="#recruitment">项目招募 / Recruitment</a>
-            <a href="#impact">实践成果 / Impact</a>
-            <a href="#contact">联系我们 / Contact</a>
+            <a href="#recruitment">招募 / Recruitment</a>
+            <a href="#impact">成果 / Impact</a>
+            <a href="#contact">联系 / Contact</a>
         </div>
     </div>
 </nav>
@@ -100,27 +101,23 @@
 
 <section id="about" class="container">
     <div class="section-title">
-        <span>About CloudRiver</span>
+        <span>Project Introduction</span>
         <h2>项目介绍</h2>
     </div>
-    <div class="about-content">
-        <p>
-            <strong>CloudRiver</strong> 是一个致力于推动中国乡村媒介素养（Media Literacy）与AI素养（AI Literacy）提升的国际志愿活动平台。依托“水云学校数字素养提升计划”，我们旨在通过跨学科、跨文化的志愿协作，赋能乡村中小学生掌握在智能时代所需的数字化生存能力。
-        </p>
-        <p>
-            我们的研究与实践涵盖：乡村青少年的数字身份构建、AIGC工具的批判性应用、以及算法环境下的审辩式思维。从2025年的初步探索到2026年的深化拓展，CloudRiver 始终连接着全球智慧与乡土大地。
-        </p>
+    <div style="max-width: 800px; margin: 0 auto; text-align: justify; color: #444;">
+        <p>CloudRiver 是一个专注于中国乡村媒介素养与AI素养提升的国际志愿平台。依托“水云学校数字素养提升计划”，我们连接全球青年志愿者与中国乡村孩子，共同探索智能时代的数字化生存与表达。</p>
     </div>
 </section>
 
 <section id="recruitment" class="container">
     <div class="section-title">
-        <span>Programs 2026</span>
-        <h2>2026 暑期招募计划</h2>
+        <span>Join Our Mission</span>
+        <h2>2026 暑期项目招募</h2>
     </div>
+
     <div class="grid">
         <div class="card" style="border-top: 5px solid var(--primary);">
-            <h3>暑期国际志愿者招募令 <small>Call for Global Volunteers</small></h3>
+            <h3>暑期国际志愿者招募令 <small>Call for Global Volunteers 2026</small></h3>
             <div class="detail-item">
                 <span class="detail-label">岗位角色 <em>Roles</em></span>
                 <span class="detail-text">AI探索导师、媒介批评教育者、视觉记录官 <br> AI Mentors, Media Educators, Visual Storytellers</span>
@@ -129,18 +126,26 @@
                 <span class="detail-label">核心方向 <em>Focus</em></span>
                 <span class="detail-text">AIGC工具应用、识别虚假信息与算法偏见 <br> AIGC Tools & Algorithmic Bias Defense</span>
             </div>
-            <a href="你的飞书志愿者链接" class="btn btn-blue">志愿者申请 / Apply Now</a>
+            <div class="detail-item">
+                <span class="detail-label">志愿者权益 <em>Benefits</em></span>
+                <span class="detail-text">国际志愿服务证书、深度参与前沿媒介素养研究 <br> Int'l Certificate & Participation in Field Research</span>
+            </div>
+            <a href="你的飞书志愿者链接" class="btn btn-blue">立即申请 / Apply Now</a>
         </div>
 
         <div class="card" style="border-top: 5px solid var(--secondary);">
-            <h3>AI探索夏令营（国内学生） <small>Summer AI Literacy Camp</small></h3>
+            <h3>乡村媒介素养·AI探索夏令营 <small>Summer Media & AI Literacy Camp</small></h3>
             <div class="detail-item">
                 <span class="detail-label">核心特色 <em>Highlights</em></span>
-                <span class="detail-text">AI绘画写作实战、识别“深度伪造”、数字化表达 <br> AI Creation & Critical Thinking</span>
+                <span class="detail-text">AI绘画写作实战、识别“深度伪造”、数字化表达 <br> AI Creation & Deepfake Awareness</span>
             </div>
             <div class="detail-item">
-                <span class="detail-label">项目周期 <em>Timeline</em></span>
-                <span class="detail-text">2026年7月15日 - 7月25日（暂定） <br> July 15 - July 25, 2026</span>
+                <span class="detail-label">国际同伴 <em>Global Interaction</em></span>
+                <span class="detail-text">与全球志愿者共同学习，拓宽国际视野 <br> Interacting with volunteers from all over the world</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">项目产出 <em>Outcome</em></span>
+                <span class="detail-text">获得媒介素养社会实践证书及个人数字作品集 <br> Official Certificate & Personal AI Portfolio</span>
             </div>
             <a href="你的飞书学生链接" class="btn btn-green">学生报名 / Register Now</a>
         </div>
@@ -150,25 +155,47 @@
 <section class="impact-bg" id="impact">
     <div class="container">
         <div class="section-title">
-            <span>Video Gallery</span>
+            <span>Impact & Moments</span>
             <h2>实践成果与精彩瞬间</h2>
         </div>
+
         <div class="video-grid">
             <div class="video-item">
                 <img src="https://via.placeholder.com/600x400?text=2025+Highlights" alt="Video 1">
                 <a href="https://weibo.com/tv/show/1034:5239083916787760" target="_blank" class="video-overlay">
-                    <div class="play-icon"><svg width="25" height="25" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="var(--primary)"/></svg></div>
+                    <div class="play-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="var(--primary)"><path d="M8 5v14l11-7z"/></svg></div>
                     <div class="video-title">2025 项目回顾 <span>Project Highlights 2025</span></div>
                 </a>
             </div>
             <div class="video-item">
-                <img src="https://via.placeholder.com/600x400?text=AI+Workshop" alt="Video 2">
-                <a href="#" class="video-overlay">
-                    <div class="play-icon"><svg width="25" height="25" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="var(--primary)"/></svg></div>
+                <img src="https://via.placeholder.com/600x400?text=AI+Class" alt="Video 2">
+                <a href="#" target="_blank" class="video-overlay">
+                    <div class="play-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="var(--primary)"><path d="M8 5v14l11-7z"/></svg></div>
                     <div class="video-title">AI课堂实录 <span>AI Workshop</span></div>
                 </a>
             </div>
+            <div class="video-item">
+                <img src="https://via.placeholder.com/600x400?text=Volunteer+Voice" alt="Video 3">
+                <a href="#" target="_blank" class="video-overlay">
+                    <div class="play-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="var(--primary)"><path d="M8 5v14l11-7z"/></svg></div>
+                    <div class="video-title">志愿者心得 <span>Volunteer Voice</span></div>
+                </a>
             </div>
+            <div class="video-item">
+                <img src="https://via.placeholder.com/600x400?text=Village+Vlog" alt="Video 4">
+                <a href="#" target="_blank" class="video-overlay">
+                    <div class="play-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="var(--primary)"><path d="M8 5v14l11-7z"/></svg></div>
+                    <div class="video-title">乡村Vlog <span>Rural Vlog</span></div>
+                </a>
+            </div>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="https://via.placeholder.com/400x300?text=Photo+1" alt="P1"></div>
+            <div class="gallery-item"><img src="https://via.placeholder.com/400x300?text=Photo+2" alt="P2"></div>
+            <div class="gallery-item"><img src="https://via.placeholder.com/400x300?text=Photo+3" alt="P3"></div>
+            <div class="gallery-item"><img src="https://via.placeholder.com/400x300?text=Photo+4" alt="P4"></div>
+        </div>
     </div>
 </section>
 
@@ -178,18 +205,8 @@
         <h2>联系我们</h2>
     </div>
     <div class="contact-box">
-        <div class="contact-item">
-            <strong>电子邮箱 Email</strong>
-            <span>research@cloudriver.org.cn</span>
-        </div>
-        <div class="contact-item">
-            <strong>项目地址 Location</strong>
-            <span>浙江省温州市永嘉县岩坦镇水云村 <br> Shuiyun Village, Yongjia, Wenzhou, China</span>
-        </div>
-        <div class="contact-item">
-            <strong>官方网站 Website</strong>
-            <span>www.cloudriver.org.cn</span>
-        </div>
+        <p><strong>Email:</strong> research@cloudriver.org.cn</p>
+        <p><strong>Location:</strong> 浙江省温州市永嘉县岩坦镇水云村</p>
     </div>
 </section>
 
@@ -197,7 +214,6 @@
     <div class="container">
         <img src="A7457239-CFC6-4A9E-AE8A-59D82B4431DC.jpg" alt="Logo" class="footer-logo">
         <p>&copy; 2026 CloudRiver | cloudriver.org.cn</p>
-        <p>让每一份数字创意都在乡土发芽</p>
     </div>
 </footer>
 
