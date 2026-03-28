@@ -8,62 +8,77 @@
         :root {
             --primary: #0056b3;
             --secondary: #28a745;
-            --text-main: #2d3436;
-            --text-sub: #636e72;
-            --bg-light: #f9f9f9;
+            --text-dark: #2d3436;
+            --text-gray: #7f8c8d;
+            --bg-light: #fbfbfb;
         }
 
-        body { font-family: 'PingFang SC', 'Segoe UI', sans-serif; line-height: 1.5; color: var(--text-main); margin: 0; background: #fff; }
-        .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
-       
+        body { font-family: 'PingFang SC', 'Helvetica Neue', sans-serif; line-height: 1.6; color: var(--text-dark); margin: 0; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 25px; }
+
         /* Navigation */
-        nav { background: rgba(255,255,255,0.95); padding: 12px 0; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #eee; }
+        nav { background: #fff; padding: 12px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 1px 10px rgba(0,0,0,0.05); }
         .nav-content { display: flex; justify-content: space-between; align-items: center; }
-        .logo-box img { height: 50px; width: auto; vertical-align: middle; }
-        .nav-links a { margin-left: 20px; text-decoration: none; color: var(--text-main); font-weight: 500; font-size: 0.9rem; }
+        .logo-box img { height: 48px; vertical-align: middle; }
+        .nav-links a { margin-left: 20px; text-decoration: none; color: var(--text-dark); font-weight: 500; font-size: 0.9rem; }
 
-        /* Hero: Pure Branding */
-        .hero { height: 60vh; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://via.placeholder.com/1920x1080?text=Shuiyun+Village+Scenery') center/cover; display: flex; align-items: center; justify-content: center; color: #fff; text-align: center; }
+        /* Hero */
+        .hero { height: 45vh; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://via.placeholder.com/1920x800?text=Shuiyun+Village') center/cover; display: flex; align-items: center; justify-content: center; color: #fff; text-align: center; }
         .hero h1 { font-size: 3.5rem; margin: 0; letter-spacing: 2px; }
-        .hero p { font-size: 1.2rem; margin-top: 10px; font-weight: 300; opacity: 0.9; }
+        .hero p { font-size: 1.2rem; margin-top: 10px; opacity: 0.9; }
 
-        /* Section Headings */
-        .section-head { text-align: center; margin-bottom: 50px; }
-        .section-head h2 { font-size: 2rem; color: var(--primary); margin-bottom: 8px; }
-        .section-head .en-sub { font-size: 1rem; color: var(--text-sub); text-transform: uppercase; letter-spacing: 1px; }
+        /* Section Styling */
+        section { padding: 60px 0; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2rem; color: var(--primary); margin-bottom: 5px; }
+        .section-title span { color: var(--text-gray); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* Card Content Design - The Non-Messy Way */
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; padding-bottom: 60px; }
-        .card { background: #fff; border-radius: 20px; padding: 40px; border: 1px solid #eee; transition: 0.3s; }
-        .card:hover { box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
+        /* Recruitment Cards */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 35px; }
+        .card { background: #fff; border-radius: 15px; padding: 35px; border: 1px solid #eee; transition: 0.3s; display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.08); }
        
-        .card h3 { font-size: 1.6rem; margin-top: 0; margin-bottom: 25px; color: var(--primary); line-height: 1.2; }
-        .card h3 span { display: block; font-size: 0.95rem; color: var(--text-sub); font-weight: normal; margin-top: 4px; }
+        .card h3 { font-size: 1.5rem; margin: 0 0 20px 0; color: #000; border-bottom: 2px solid #f1f1f1; padding-bottom: 15px; }
+        .card h3 small { display: block; font-size: 0.85rem; color: var(--text-gray); font-weight: normal; margin-top: 5px; }
 
-        .info-item { margin-bottom: 18px; }
-        .info-label { font-weight: 700; display: block; font-size: 1rem; color: #000; }
-        .info-label span { font-weight: 400; font-size: 0.85rem; color: var(--text-sub); margin-left: 5px; }
-        .info-desc { color: var(--text-light); font-size: 0.95rem; margin-top: 2px; display: block; }
+        .detail-item { margin-bottom: 15px; }
+        .detail-label { font-weight: bold; color: var(--primary); display: block; font-size: 1rem; }
+        .detail-label em { font-style: normal; font-size: 0.8rem; color: var(--text-gray); font-weight: normal; margin-left: 5px; }
+        .detail-text { color: #555; font-size: 0.92rem; margin-top: 3px; display: block; }
 
-        .btn { display: block; padding: 15px; border-radius: 12px; text-decoration: none; font-weight: bold; text-align: center; margin-top: 20px; }
+        .btn { display: block; padding: 14px; border-radius: 10px; text-decoration: none; font-weight: bold; text-align: center; margin-top: 20px; transition: 0.3s; }
         .btn-blue { background: var(--primary); color: #fff; }
         .btn-green { background: var(--secondary); color: #fff; }
 
-        /* Video & Gallery Section */
-        .impact-section { background: var(--bg-light); padding: 80px 0; }
-        .video-box { position: relative; width: 100%; border-radius: 15px; overflow: hidden; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
-        .video-box img { width: 100%; display: block; }
-        .play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(255,255,255,0.9); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.3s; }
-        .play-btn:hover { transform: translate(-50%, -50%) scale(1.1); background: var(--primary); color: #fff; }
+        /* Video Matrix - 4 Videos Design */
+        .impact-bg { background: var(--bg-light); }
+        .video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 40px; }
+        .video-item { position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.1); background: #000; }
+        .video-item img { width: 100%; height: 250px; object-fit: cover; opacity: 0.8; display: block; transition: 0.3s; }
+        .video-item:hover img { opacity: 0.6; transform: scale(1.05); }
+       
+        .video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; text-decoration: none; }
+        .play-icon { width: 55px; height: 55px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; transition: 0.3s; }
+        .video-item:hover .play-icon { background: var(--primary); }
+        .play-icon svg { fill: var(--primary); transition: 0.3s; }
+        .video-item:hover .play-icon svg { fill: #fff; }
+       
+        .video-title { font-weight: bold; font-size: 1rem; text-shadow: 0 2px 4px rgba(0,0,0,0.5); text-align: center; padding: 0 15px; }
+        .video-title span { display: block; font-size: 0.8rem; font-weight: normal; margin-top: 4px; opacity: 0.9; }
 
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; }
-        .gallery-item { height: 180px; border-radius: 10px; overflow: hidden; }
+        /* Gallery */
+        .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+        .gallery-item { height: 160px; border-radius: 8px; overflow: hidden; }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
 
-        footer { background: #2d3436; color: #bdc3c7; padding: 60px 0; text-align: center; }
-        .footer-logo { height: 40px; filter: brightness(5); margin-bottom: 20px; }
+        footer { background: #2d3436; color: rgba(255,255,255,0.6); padding: 50px 0; text-align: center; font-size: 0.9rem; }
+        .footer-logo { height: 40px; filter: brightness(0) invert(1); opacity: 0.7; margin-bottom: 20px; }
 
-        @media (max-width: 800px) { .grid { grid-template-columns: 1fr; } .hero h1 { font-size: 2.5rem; } }
+        @media (max-width: 850px) {
+            .grid, .video-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: 1fr 1fr; }
+            .hero h1 { font-size: 2.2rem; }
+        }
     </style>
 </head>
 <body>
@@ -74,85 +89,105 @@
             <img src="A7457239-CFC6-4A9E-AE8A-59D82B4431DC.jpg" alt="CloudRiver Logo">
         </a>
         <div class="nav-links">
-            <a href="#recruitment">Programs / 招募项目</a>
-            <a href="#impact">Impact / 实践成果</a>
+            <a href="#recruitment">项目招募 / Recruitment</a>
+            <a href="#impact">实践成果 / Impact</a>
         </div>
     </div>
 </nav>
 
 <section class="hero">
-    <div class="hero-body">
+    <div class="container">
         <h1>CloudRiver</h1>
-        <p>Rural Media & AI Literacy Project | 乡村媒介素养与AI教育计划</p>
+        <p>让AI的种子，落在最肥沃的乡土 | Seeds of AI in Rural Soil</p>
     </div>
 </section>
 
 <section id="recruitment" class="container">
-    <div class="section-head">
-        <span class="en-sub">Join Our Mission</span>
+    <div class="section-title">
+        <span>Programs 2026</span>
         <h2>2026 暑期招募计划</h2>
     </div>
 
     <div class="grid">
         <div class="card" style="border-top: 5px solid var(--primary);">
-            <h3>Global Volunteer Recruitment <span>暑期国际志愿者招募令</span></h3>
-           
-            <div class="info-item">
-                <span class="info-label">Roles <span>申请岗位</span></span>
-                <span class="info-desc">AI Mentors, Content Creators, Field Researchers <br> AI导师、内容创作、田野研究员</span>
+            <h3>暑期国际志愿者招募令 <small>Call for Global Volunteers</small></h3>
+            <div class="detail-item">
+                <span class="detail-label">岗位角色 <em>Roles</em></span>
+                <span class="detail-text">AI探索导师、媒介批评教育者、视觉记录官 <br> AI Mentors, Media Educators, Visual Storytellers</span>
             </div>
-            <div class="info-item">
-                <span class="info-label">Focus <span>核心议题</span></span>
-                <span class="info-desc">Digital Literacy & Algorithmic Ethics / 数字素养与算法伦理</span>
+            <div class="detail-item">
+                <span class="detail-label">核心方向 <em>Focus</em></span>
+                <span class="detail-text">AIGC工具应用、识别虚假信息与算法偏见 <br> AIGC Tools & Algorithmic Bias Defense</span>
             </div>
-            <div class="info-item">
-                <span class="info-label">Benefit <span>志愿者权益</span></span>
-                <span class="info-desc">Int'l Certificate & Research Support / 国际志愿证书与科研支持</span>
+            <div class="detail-item">
+                <span class="detail-label">项目周期 <em>Timeline</em></span>
+                <span class="detail-text">2026年7月15日 - 8月5日 <br> July 15 - Aug 5, 2026</span>
             </div>
-
-            <a href="你的飞书志愿者链接" class="btn btn-blue">Apply for Volunteer / 立即申请</a>
+            <a href="你的飞书志愿者链接" class="btn btn-blue">志愿者申请 / Apply Now</a>
         </div>
 
         <div class="card" style="border-top: 5px solid var(--secondary);">
-            <h3>Summer Exploration Camp <span>乡村媒介素养·AI探索夏令营</span></h3>
-           
-            <div class="info-item">
-                <span class="info-label">Theme <span>夏令营主题</span></span>
-                <span class="info-desc">AIGC Creation & Critical Thinking / AI创作与审辩式思维</span>
+            <h3>AI探索夏令营（国内学生） <small>Summer AI Literacy Camp</small></h3>
+            <div class="detail-item">
+                <span class="detail-label">核心特色 <em>Highlights</em></span>
+                <span class="detail-text">AI绘画写作实战、识别“深度伪造”、数字化表达 <br> AI Creation & Critical Thinking</span>
             </div>
-            <div class="info-item">
-                <span class="info-label">Highlights <span>项目特色</span></span>
-                <span class="info-desc">Global Peer Interaction & AI Portfolio / 国际同伴交流与个人AI作品集</span>
+            <div class="detail-item">
+                <span class="detail-label">费用说明 <em>Fee</em></span>
+                <span class="detail-text">基础公益费用（含10天食宿、教具及课时费） <br> Basic Charity Fee (Board, Meals & Tuition)</span>
             </div>
-            <div class="info-item">
-                <span class="info-label">Registration <span>报名说明</span></span>
-                <span class="info-desc">Open to K12 Students (Limited Spots) / 面向中小学生，限额开放</span>
+            <div class="detail-item">
+                <span class="detail-label">项目产出 <em>Outcome</em></span>
+                <span class="detail-text">获得媒介素养社会实践证书及个人数字作品集 <br> Official Certificate & AI Portfolio</span>
             </div>
-
-            <a href="你的飞书学生链接" class="btn btn-green">Student Registration / 学生报名入口</a>
+            <a href="你的飞书学生链接" class="btn btn-green">学生报名 / Register Now</a>
         </div>
     </div>
 </section>
 
-<section class="impact-section" id="impact">
+<section class="impact-bg" id="impact">
     <div class="container">
-        <div class="section-head">
-            <span class="en-sub">Visualizing the Impact</span>
-            <h2>2025 实践成果展示</h2>
+        <div class="section-title">
+            <span>Video & Photo Gallery</span>
+            <h2>实践成果与精彩瞬间</h2>
         </div>
 
-        <div class="video-box">
-            <img src="https://via.placeholder.com/1100x500?text=2025+Shuiyun+Project+Video+Cover" alt="Video Cover">
-            <a href="https://weibo.com/tv/show/1034:5239083916787760" target="_blank" class="play-btn">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-            </a>
+        <div class="video-grid">
+            <div class="video-item">
+                <img src="https://via.placeholder.com/600x400?text=Project+Highlights" alt="Video 1">
+                <a href="https://weibo.com/tv/show/1034:5239083916787760" target="_blank" class="video-overlay">
+                    <div class="play-icon"><svg width="25" height="25" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+                    <div class="video-title">2025 项目回顾 <span>Project Highlights 2025</span></div>
+                </a>
+            </div>
+            <div class="video-item">
+                <img src="https://via.placeholder.com/600x400?text=AI+Classroom" alt="Video 2">
+                <a href="你的视频链接2" target="_blank" class="video-overlay">
+                    <div class="play-icon"><svg width="25" height="25" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+                    <div class="video-title">AI课堂实录 <span>AI Exploration Workshop</span></div>
+                </a>
+            </div>
+            <div class="video-item">
+                <img src="https://via.placeholder.com/600x400?text=Volunteer+Voice" alt="Video 3">
+                <a href="你的视频链接3" target="_blank" class="video-overlay">
+                    <div class="play-icon"><svg width="25" height="25" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+                    <div class="video-title">志愿者心得 <span>Voices of Volunteers</span></div>
+                </a>
+            </div>
+            <div class="video-item">
+                <img src="https://via.placeholder.com/600x400?text=Kids+Creation" alt="Video 4">
+                <a href="你的视频链接4" target="_blank" class="video-overlay">
+                    <div class="play-icon"><svg width="25" height="25" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+                    <div class="video-title">乡村孩子作品展示 <span>Rural Kids' Works Showcase</span></div>
+                </a>
+            </div>
         </div>
 
         <div class="gallery-grid">
-            <div class="gallery-item"><img src="https://via.placeholder.com/400x300?text=AI+Workshop" alt="1"></div>
-            <div class="gallery-item"><img src="https://via.placeholder.com/400x300?text=Global+Exchange" alt="2"></div>
-            <div class="gallery-item"><img src="https://via.placeholder.com/400x300?text=Field+Research" alt="3"></div>
-            <div class="gallery-item"><img src="https://via.placeholder.com/400x300?text=Kids+Works" alt="4"></div>
+            <div class="gallery-item"><img src="https://via.placeholder.com/300x200?text=1" alt="P1"></div>
+            <div class="gallery-item"><img src="https://via.placeholder.com/300x200?text=2" alt="P2"></div>
+            <div class="gallery-item"><img src="https://via.placeholder.com/300x200?text=3" alt="P3"></div>
+            <div class="gallery-item"><img src="https://via.placeholder.com/300x200?text=4" alt="P4"></div>
         </div>
     </div>
 </section>
@@ -160,8 +195,8 @@
 <footer>
     <div class="container">
         <img src="A7457239-CFC6-4A9E-AE8A-59D82B4431DC.jpg" alt="Logo" class="footer-logo">
-        <p>© 2026 CloudRiver | International Media Literacy Project</p>
-        <p style="font-size: 0.8rem; margin-top: 8px;">cloudriver.org.cn | 温州永嘉水云学校数字素养提升计划</p>
+        <p>&copy; 2026 CloudRiver | cloudriver.org.cn</p>
+        <p>浙江永嘉水云学校数字素养提升计划</p>
     </div>
 </footer>
 
