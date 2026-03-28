@@ -3,187 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloudriver | 乡村媒介素养与AI教育平台</title>
+    <title>Cloudriver | Connecting Rural China through Media & AI Literacy</title>
     <style>
+        /* --- 核心样式变量 --- */
         :root {
-            --primary-blue: #0056b3;
-            --accent-green: #28a745;
+            --primary-blue: #0056b3; /* 对应LOGO的主蓝色 */
+            --accent-green: #28a745; /* 用于国内招募的生机绿 */
             --text-dark: #333;
-            --light-gray: #f8f9fa;
+            --text-light: #666;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
         }
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: var(--text-dark); margin: 0; padding: 0; }
+
+        /* --- 基础复位 --- */
+        body { margin: 0; padding: 0; font-family: 'Helvetica Neue', Arial, sans-serif; color: var(--text-dark); line-height: 1.6; background-color: var(--white); scroll-behavior: smooth; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; padding: 0; margin: 0; }
+        img { max-width: 100%; height: auto; }
+
+        /* --- 布局组件 --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section-title { text-align: center; font-size: 2.2rem; color: var(--primary-blue); margin-bottom: 1rem; margin-top: 4rem; }
+        .section-subtitle { text-align: center; color: var(--text-light); margin-bottom: 3rem; font-size: 1.1rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+
+        /* --- 按钮样式 --- */
+        .btn { display: inline-block; padding: 12px 30px; border-radius: 30px; font-weight: bold; text-align: center; cursor: pointer; border: none; font-size: 1rem; }
+        .btn-blue { background-color: var(--primary-blue); color: var(--white); }
+        .btn-blue:hover { background-color: #004494; }
+        .btn-green { background-color: var(--accent-green); color: var(--white); }
+        .btn-green:hover { background-color: #218838; }
+
+        /* =========================================
+           1. 导航栏 (Navigation) - 含LOGO
+        ========================================= */
+        header { background: var(--white); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
        
-        /* Navigation */
-        nav { background: #fff; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 1000; }
-        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-blue); text-decoration: none; }
-        .nav-links a { text-decoration: none; color: var(--text-dark); margin-left: 15px; }
-
-        /* Hero Section */
-        .hero { background: #000; height: 60vh; display: flex; align-items: center; justify-content: center; color: #fff; text-align: center; overflow: hidden; position: relative; }
-        .hero-video-placeholder { position: absolute; width: 100%; opacity: 0.6; }
-        .hero-content { position: relative; z-index: 10; padding: 0 20px; }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-
-        /* Container & Grid for Recruitment */
-        .container { max-width: 1200px; margin: 2rem auto; padding: 0 20px; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 3rem; }
-        .card { border: 1px solid #ddd; padding: 2rem; border-radius: 12px; transition: transform 0.3s; background: #fff; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        /* 关键：LOGO 样式 */
+        .logo-container { display: flex; align-items: center; }
+        .logo-img { height: 50px; /* 调整LOGO高度 */ width: auto; margin-right: 10px; }
        
-        h2.section-title { text-align: center; color: var(--primary-blue); margin-top: 3rem; margin-bottom: 1rem; }
-        h3 { color: var(--primary-blue); }
+        .nav-links { display: flex; gap: 20px; font-weight: 500; }
+        .nav-links a:hover { color: var(--primary-blue); }
+        .lang-switch { font-size: 0.9rem; color: var(--text-light); }
+
+        /* =========================================
+           2. 视频主视图 (Hero Section)
+        ========================================= */
+        .hero { background-color: #000; height: 70vh; display: flex; align-items: center; justify-content: center; color: var(--white); text-align: center; position: relative; overflow: hidden; }
        
-        .btn { display: inline-block; padding: 12px 25px; border-radius: 25px; text-decoration: none; font-weight: bold; margin-top: 15px; cursor: pointer; border: none;}
-        .btn-intl { background: var(--primary-blue); color: #fff; }
-        .btn-domestic { background: var(--accent-green); color: #fff; }
-
-        /* --- New: 2025 Gallery Section (照片墙) --- */
-        .gallery-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* 响应式网格 */
-            gap: 15px;
-            padding: 20px 0;
-        }
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            height: 200px; /* 固定高度，保持整齐 */
-            cursor: pointer;
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* 图片填充模式 */
-            transition: transform 0.5s ease;
-        }
-        /* 悬停时的放大效果 */
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-        /* 图片上的文字遮罩层 */
-        .gallery-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            color: #fff;
-            padding: 10px;
-            font-size: 0.9rem;
-            opacity: 0; /* 默认隐藏 */
-            transition: opacity 0.3s ease;
-        }
-        .gallery-item:hover .gallery-caption {
-            opacity: 1; /* 悬停时显示 */
-        }
-
-        /* Impact Stats */
-        .impact-stats { background: var(--light-gray); padding: 4rem 0; text-align: center; }
+        /* 视频占位样式，建议替换为 iframe */
+        .hero-video-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.5; z-index: 1; }
        
-        /* Footer */
-        footer { text-align: center; padding: 2rem; color: #888; background: #fff; border-top: 1px solid #eee; }
+        .hero-content { position: relative; z-index: 2; max-width: 800px; padding: 0 20px; }
+        .hero-content h1 { font-size: 3rem; margin-bottom: 10px; line-height: 1.2; }
+        .hero-content p { font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9; }
 
-        @media (max-width: 768px) {
-            .grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 1.8rem; }
+        /* =========================================
+           3. 双招募版块 (Recruitment)
+        ========================================= */
+        .recruitment { padding: 50px 0; background-color: var(--bg-light); }
+        .recruit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+       
+        .recruit-card { background: var(--white); padding: 40px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; display: flex; flex-direction: column; }
+        .recruit-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+       
+        .recruit-card h3 { font-size: 1.8rem; margin-top: 0; margin-bottom: 5px; }
+        .card-subtitle { color: var(--text-light); font-size: 1rem; margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+       
+        .recruit-card h3.intl { color: var(--primary-blue); }
+        .recruit-card h3.domestic { color: var(--accent-green); }
+       
+        .recruit-details { margin-bottom: 30px; flex-grow: 1; }
+        .recruit-details li { margin-bottom: 12px; display: flex; align-items: flex-start; }
+        .recruit-details li::before { content: '✓'; color: var(--primary-blue); margin-right: 10px; font-weight: bold; }
+        .domestic li::before { color: var(--accent-green); }
+
+        /* =========================================
+           4. 照片墙 (Gallery 2025)
+        ========================================= */
+        .gallery { padding: 60px 0; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .gallery-item { position: relative; border-radius: 10px; overflow: hidden; height: 250px; cursor: pointer; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-caption { position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: var(--white); padding: 15px; font-size: 0.9rem; opacity: 0; transition: 0.3s; }
+        .gallery-item:hover .gallery-caption { opacity: 1; }
+
+        /* =========================================
+           5. 页脚 (Footer)
+        ========================================= */
+        footer { background-color: var(--text-dark); color: rgba(255,255,255,0.7); padding: 50px 0; text-align: center; font-size: 0.9rem; }
+        .footer-logo { height: 40px; width: auto; margin-bottom: 20px; filter: brightness(0) invert(1); /* 使LOGO变为白色 */ opacity: 0.8; }
+        .footer-links { margin-bottom: 20px; display: flex; justify-content: center; gap: 20px; }
+        .footer-links a:hover { color: var(--white); }
+
+        /* =========================================
+           响应式设计 (Responsive)
+        ========================================= */
+        @media (max-width: 992px) {
+            .hero-content h1 { font-size: 2.2rem; }
+            .recruit-grid { grid-template-columns: 1fr; }
+            .recruit-card { padding: 30px; }
         }
     </style>
 </head>
 <body>
 
-<nav>
-    <a href="#" class="logo">CLOUDRIVER</a>
-    <div class="nav-links">
-        <a href="#join">Join 2026</a> |
-        <a href="#gallery">2025 Photos</a> |
-        <a href="你的飞书志愿者申请表链接" target="_blank">Volunteer</a> |
-        <a href="你的飞书学生报名表链接" target="_blank">学生报名</a>
+<header>
+    <div class="container">
+        <nav>
+            <a href="#" class="logo-container">
+                <img src="cloudriver-logo.png" alt="Cloudriver Logo" class="logo-img">
+            </a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#recruit">Join 2026</a>
+                <a href="#gallery">2025 Impact</a>
+                <span class="lang-switch">中文 / EN</span>
+            </div>
+        </nav>
     </div>
-</nav>
+</header>
 
-<section class="hero">
+<section class="hero" id="about">
+    <img src="https://via.placeholder.com/1920x1080/000/fff?text=Shuiyun+Village+Video+Placeholder" alt="Video Background" class="hero-video-bg">
+   
     <div class="hero-content">
-        <h1>Connecting the World through Rural Media Literacy</h1>
-        <p>让AI的种子，落在最肥沃的乡土 | 2026 Summer Camp @ Shuiyun Village</p>
-        <a href="https://weibo.com/tv/show/1034:5239083916787760" target="_blank" style="color: #fff; text-decoration: underline; font-size: 0.9rem;">Watch Our Story (Weibo) ➔</a>
+        <h1>Planting Seeds of AI Literacy in Rural China</h1>
+        <p>Cloudriver is an international platform empowering rural children with media and AI literacy.</p>
+        <a href="https://weibo.com/tv/show/1034:5239083916787760" target="_blank" class="btn btn-blue">Watch Our Story (Weibo)</a>
     </div>
 </section>
 
-<div class="container" id="join">
-    <h2 class="section-title">2026 Summer Camp Recruiting | 夏令营招募</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>International Volunteer</h3>
-            <p><strong>Focus:</strong> AI Literacy & Cross-cultural Exchange</p>
-            <ul>
-                <li>Mentor students in AIGC tools</li>
-                <li>Conduct media criticism workshops</li>
-                <li>Document rural stories</li>
-            </ul>
-            <a href="你的飞书志愿者申请表链接" target="_blank" class="btn btn-intl">Apply Now (Global)</a>
-        </div>
-
-        <div class="card">
-            <h3>2026 学生招募 (国内)</h3>
-            <p><strong>主题：</strong>在浙南山水间，遇见AI与未来的自己</p>
-            <ul>
-                <li><strong>AI实战：</strong>创作个人数字作品集</li>
-                <li><strong>国际视野：</strong>与外籍志愿者交流</li>
-                <li><strong>研究证书：</strong>Cloudriver 官方证明</li>
-            </ul>
-            <a href="你的飞书学生报名表链接" target="_blank" class="btn btn-domestic">立即报名</a>
-        </div>
-    </div>
-</div>
-
-<section style="background: #fff; padding: 2rem 0;" id="gallery">
+<section class="recruitment" id="recruit">
     <div class="container">
-        <h2 class="section-title">2025 Shuiyun Highlights | 2025 精彩瞬间</h2>
+        <h2 class="section-title">2026 Summer Programs</h2>
+        <p class="section-subtitle">Join us in Shuiyun Village, Yongjia, Zhejiang for a transformative experience in Media and AI Education.</p>
        
-        <div class="gallery-container">
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/600x400?text=Children+using+AI" alt="乡村儿童使用AI">
-                <div class="gallery-caption">孩子们第一次使用AI工具创作绘本 | Kids creating with AI</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/600x400?text=Volunteer+Teaching" alt="志愿者在授课">
-                <div class="gallery-caption">国际志愿者进行媒介批评教学 | Media Criticism Workshop</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/600x400?text=Rural+Photography" alt="乡村摄影实践">
-                <div class="gallery-caption">用镜头记录永嘉千年古村 | Documenting Ancient Village</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/600x400?text=Closing+Ceremony" alt="成果展示仪式">
-                <div class="gallery-caption">结营仪式：展示数字化学习成果 | Showcase @ Closing Ceremony</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/600x400?text=Cross-cultural" alt="跨文化交流">
-                <div class="gallery-caption">中外青年在楠溪江畔共话未来 | Connection @ Nanxi River</div>
-            </div>
+        <div class="recruit-grid">
            
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/600x400?text=Group+Photo" alt="2025集体合影">
-                <div class="gallery-caption">Cloudriver 2025 夏令营合影 | Cloudriver 2025 Group Photo</div>
+            <div class="recruit-card">
+                <h3 class="intl">Call for Global Volunteers</h3>
+                <p class="card-subtitle">Empowering Rural China: Where AI Meets Mountains</p>
+               
+                <ul class="recruit-details intl">
+                    <li><strong>Role:</strong> AI Exploration Mentors, Media Educators, or Visual Storytellers.</li>
+                    <li><strong>Focus:</strong> AIGC tools, misinformation defense, and cultural exchange.</li>
+                    <li><strong>Dates:</strong> July 15 - August 5, 2026.</li>
+                    <li><strong>Gain:</strong> Research opportunities, International Certificate, and deep culture immersion.</li>
+                </ul>
+               
+                <a href="你的飞书志愿者申请表链接" target="_blank" class="btn btn-blue">Apply Now (Global)</a>
+            </div>
+
+            <div class="recruit-card">
+                <h3 class="domestic">乡村媒介素养·AI探索夏令营</h3>
+                <p class="card-subtitle">面向国内中小学生 | 在浙南山水间，遇见未来的自己</p>
+               
+                <ul class="recruit-details domestic">
+                    <li><strong>核心特色：</strong>AI绘本创作、数字人视频制作、算法审辩力培养。</li>
+                    <li><strong>国际环境：</strong>与外籍志愿者同吃同住，提升双语交流能力。</li>
+                    <li><strong>研学产出：</strong>个人“乡村媒介实录”作品集、Cloudriver 社会实践证书。</li>
+                    <li><strong>费用：</strong>收取基础费用覆盖食宿、教具及课时费。</li>
+                </ul>
+               
+                <a href="你的飞书学生报名表链接" target="_blank" class="btn btn-green">立即报名 (国内学生)</a>
             </div>
         </div>
     </div>
 </section>
 
-<section class="impact-stats">
+<section class="gallery" id="gallery">
     <div class="container">
-        <h3>2025 Impact | 往届成果</h3>
-        <p style="font-size: 1.2rem; color: var(--primary-blue);">120+ Students Covered | 50+ Global Volunteers | 95% Positive Feedback</p>
+        <h2 class="section-title">2025 Impact Highlights</h2>
+        <p class="section-subtitle">120+ Students | 50+ Global Volunteers | AI Art | Real Connections</p>
+       
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/600x400?text=Kids+Using+AI" alt="Gallery Image 1">
+                <div class="gallery-caption">孩子们第一次使用AIGC工具 | Kids with AI</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/600x400?text=Volunteer+Teaching" alt="Gallery Image 2">
+                <div class="gallery-caption">国际志愿者进行媒介批评教学 | Media Workshop</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/600x400?text=Cultural+Exchange" alt="Gallery Image 3">
+                <div class="gallery-caption">中外青年在楠溪江畔交流 | Connection</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/600x400?text=Rural+Storytelling" alt="Gallery Image 4">
+                <div class="gallery-caption">用镜头记录千年古村 | Documenting Village</div>
+            </div>
+        </div>
     </div>
 </section>
 
 <footer>
-    &copy; 2026 Cloudriver Media Literacy Project | cloudriver.org.cn
+    <div class="container">
+        <img src="cloudriver-logo.png" alt="Cloudriver Logo" class="footer-logo">
+        <div class="footer-links">
+            <a href="#about">About</a>
+            <a href="#recruit">Join Us</a>
+            <a href="mailto:contact@cloudriver.org.cn">Contact</a>
+        </div>
+        <p>&copy; 2026 Cloudriver Media Literacy Project | cloudriver.org.cn</p>
+        <p style="font-size: 0.8rem; opacity: 0.5; margin-top: 10px;">浙江永嘉水云学校数字素养提升计划</p>
+    </div>
 </footer>
 
 </body>
