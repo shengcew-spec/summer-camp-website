@@ -66,43 +66,39 @@
 
        .mentor-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 电脑端两列 */
-    gap: 30px;
+    grid-template-columns: 1fr 1fr; /* 保持两列 */
+    gap: 40px; /* 稍微增加间距，因为图片变大了 */
 }
 
 .mentor-card {
     display: flex;
     align-items: flex-start;
     background: #fff;
-    padding: 20px;
+    padding: 25px; /* 增加内边距，更有呼吸感 */
     border-radius: 15px;
     border: 1px solid #eee;
     transition: 0.3s;
 }
 
-.mentor-card:hover {
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    transform: translateY(-5px);
-}
-
+/* 重点：将图片容器从 120px 放大一倍到 240px */
 .mentor-card .mentor-image {
-    flex: 0 0 120px; /* 固定图片宽度为 120px，适合多导师展示 */
-    margin-right: 20px;
+    flex: 0 0 240px;
+    margin-right: 25px; /* 增加图文之间的距离 */
 }
 
 .mentor-card .mentor-image img {
     width: 100%;
-    height: 160px; /* 固定高度，确保所有照片对齐 */
+    height: 320px; /* 同步高度，保持 3:4 的经典肖像比例 */
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 12px;
 }
 
 .mentor-card .mentor-info h4 {
-    margin: 0 0 10px 0;
+    margin: 0 0 15px 0;
     color: var(--primary);
-    font-size: 1.2rem;
-    border-bottom: 1px solid #f0f0f0;
-    padding-bottom: 5px;
+    font-size: 1.4rem; /* 名字也稍微调大一点点以匹配大图 */
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 8px;
 }
 
 .mentor-card .mentor-info p {
