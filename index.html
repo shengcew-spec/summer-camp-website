@@ -64,62 +64,58 @@
         .gallery-item { height: 180px; border-radius: 10px; overflow: hidden; }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
 
-       .mentor-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* 保持两列 */
-    gap: 40px; /* 稍微增加间距，因为图片变大了 */
-}
-
-.mentor-card {
+       .mentor-flex {
     display: flex;
-    align-items: flex-start;
+    align-items: center; /* 垂直居中对齐 */
+    gap: 50px;           /* 左右间距 */
     background: #fff;
-    padding: 25px; /* 增加内边距，更有呼吸感 */
-    border-radius: 15px;
-    border: 1px solid #eee;
-    transition: 0.3s;
+    padding: 30px;
+    border-radius: 20px;
 }
 
-/* 重点：将图片容器从 120px 放大一倍到 240px */
-.mentor-card .mentor-image {
-    flex: 0 0 240px;
-    margin-right: 25px; /* 增加图文之间的距离 */
+.mentor-image {
+    flex: 0 0 350px;    /* 固定图片容器宽度为 350px */
 }
 
-.mentor-card .mentor-image img {
+.mentor-image img {
     width: 100%;
-    height: 320px; /* 同步高度，保持 3:4 的经典肖像比例 */
-    object-fit: cover;
-    border-radius: 12px;
+    height: auto;
+    border-radius: 15px; /* 圆角 */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* 柔和阴影 */
 }
 
-.mentor-card .mentor-info h4 {
-    margin: 0 0 15px 0;
+.mentor-text {
+    flex: 1;            /* 文字占据剩余空间 */
+}
+
+.mentor-text h3 {
+    font-size: 1.5rem;
     color: var(--primary);
-    font-size: 1.4rem; /* 名字也稍微调大一点点以匹配大图 */
-    border-bottom: 2px solid #f0f0f0;
-    padding-bottom: 8px;
+    margin-top: 0;
+    border-bottom: 2px solid #f1f1f1;
+    padding-bottom: 10px;
 }
 
-.mentor-card .mentor-info p {
-    font-size: 0.9rem;
-    color: #666;
-    line-height: 1.6;
-    margin: 0;
+.mentor-text p {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.8;
 }
 
-/* 移动端适配：手机上变成一列 */
+/* 移动端适配：手机上图片在上，文字在下 */
 @media (max-width: 850px) {
-    .mentor-grid {
-        grid-template-columns: 1fr;
+    .mentor-flex {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
     }
-    .mentor-card {
-        padding: 15px;
-    }
-    .mentor-card .mentor-image {
-        flex: 0 0 100px;
+    .mentor-image {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 300px;
     }
 }
+
 
 
         /* Contact Section */
@@ -266,50 +262,29 @@
 <section id="mentors" class="container">
     <div class="section-title">
         <span>Project Mentors</span>
-        <h2>导师团队</h2>
+        <h2>导师简介</h2>
     </div>
-   
-    <div class="mentor-grid">
-        <div class="mentor-card">
-            <div class="mentor-image">
-                <img src="mentor1.jpg" alt="导师1">
-            </div>
-            <div class="mentor-info">
-                <h4>导师姓名 A</h4>
-                <p>这里是导师A的简介，建议控制在 80-100 字以内，以保证四个方块高度对齐美观。</p>
-            </div>
+    <div class="mentor-flex">
+        <div class="mentor-image">
+            <img src="mentor-photo.jpg" alt="Mentor Name">
         </div>
-
-        <div class="mentor-card">
-            <div class="mentor-image">
-                <img src="mentor2.jpg" alt="导师2">
-            </div>
-            <div class="mentor-info">
-                <h4>导师姓名 B</h4>
-                <p>这里是导师B的简介。介绍其在 AI 素养或乡村教育方面的专业背景和贡献。</p>
-            </div>
-        </div>
-
-        <div class="mentor-card">
-            <div class="mentor-image">
-                <img src="mentor3.jpg" alt="导师3">
-            </div>
-            <div class="mentor-info">
-                <h4>导师姓名 C</h4>
-                <p>这里是导师C的简介。介绍其学术背景或在 CloudRiver 项目中负责的具体课程。</p>
-            </div>
-        </div>
-
-        <div class="mentor-card">
-            <div class="mentor-image">
-                <img src="mentor4.jpg" alt="导师4">
-            </div>
-            <div class="mentor-info">
-                <h4>导师姓名 D</h4>
-                <p>这里是导师D的简介。保持团队介绍的整体风格统一，字数相近效果最好。</p>
-            </div>
+        <div class="mentor-text">
+            <h3>导师姓名 / Name</h3>
+            <p>这里输入导师的详细介绍文字。可以包括学术背景、在 CloudRiver 项目中负责的领域，以及对媒介素养或 AI 教育的个人见解。建议字数在 150-300 字之间，以保持视觉平衡。</p>
+            <p>第二段文字（可选）：可以介绍过往的支教经历或研究成果。保持专业且富有亲和力的语调。</p>
         </div>
     </div>
+    <div class="mentor-flex">
+        <div class="mentor-image">
+            <img src="mentor-photo.jpg" alt="Mentor Name">
+        </div>
+        <div class="mentor-text">
+            <h3>导师姓名 / Name</h3>
+            <p>这里输入导师的详细介绍文字。可以包括学术背景、在 CloudRiver 项目中负责的领域，以及对媒介素养或 AI 教育的个人见解。建议字数在 150-300 字之间，以保持视觉平衡。</p>
+            <p>第二段文字（可选）：可以介绍过往的支教经历或研究成果。保持专业且富有亲和力的语调。</p>
+        </div>
+    </div>
+    
 </section>
 
     
