@@ -115,7 +115,83 @@
          max-width: 300px;
         }
     }
+/* --- 支持单位布局 --- */
+#support {
+    background: #fff;
+    padding-bottom: 100px;
+}
 
+.support-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.logo-item {
+    text-align: center;
+    flex: 0 1 180px; /* 每个 Logo 占据约 180px 宽度 */
+    transition: 0.3s;
+}
+
+.logo-item:hover {
+    transform: scale(1.05);
+}
+
+.logo-item img {
+    width: 100%;
+    height: 80px; /* 统一高度，宽度自适应 */
+    object-fit: contain; /* 保证 Logo 不变形 */
+    filter: grayscale(100%); /* 默认灰色，更具学术质感 */
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.logo-item:hover img {
+    filter: grayscale(0%); /* 鼠标悬停变彩色 */
+    opacity: 1;
+}
+
+.logo-item span {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: var(--text-gray);
+}
+
+/* --- 二维码样式 --- */
+.support-qrcode {
+    text-align: center;
+    border-top: 1px dashed #eee;
+    padding-top: 40px;
+}
+
+.qr-item img {
+    width: 150px; /* 二维码大小 */
+    height: 150px;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+}
+
+.qr-item p {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    margin-top: 15px;
+}
+
+/* 移动端适配 */
+@media (max-width: 850px) {
+    .support-logos {
+        gap: 20px;
+    }
+    .logo-item {
+        flex: 0 1 40%; /* 手机端每行两个 */
+    }
+}
 
 
         /* Contact Section */
@@ -142,6 +218,7 @@
             <a href="#recruitment">招募 / Recruitment</a>
             <a href="#impact">成果 / Impact</a>
             <a href="#mentors">导师 / Mentors</a>
+            <a href="#support">支持 / Support</a>
             <a href="#contact">联系 / Contact</a>
         </div>
     </div>
@@ -305,7 +382,27 @@
         </div>
     </div>
 </section>
+<section id="support" class="container">
+    <div class="section-title">
+        <span>Project Support</span>
+        <h2>支持单位</h2>
+    </div>
+   
+    <div class="support-logos">
+        <div class="logo-item"><img src="logo-zcm.png" alt="浙江传媒学院"><span>浙江传媒学院</span></div>
+        <div class="logo-item"><img src="logo-ms.png" alt="浙江省媒介素养教育研究会"><span>浙江省媒介素养教育研究会</span></div>
+        <div class="logo-item"><img src="logo-lenovo.png" alt="北京联想公益基金会"><span>北京联想公益基金会</span></div>
+        <div class="logo-item"><img src="logo-shuiyun.png" alt="水云学校"><span>水云学校</span></div>
+        <div class="logo-item"><img src="logo-huakai.png" alt="花开水云民宿"><span>花开水云民宿</span></div>
+    </div>
 
+    <div class="support-qrcode">
+        <div class="qr-item">
+            <img src="wechat-code.jpg" alt="微信二维码">
+            <p>扫码关注项目进展 / Contact via WeChat</p>
+        </div>
+    </div>
+</section>
     
 <section id="contact" class="container">
     <div class="section-title">
