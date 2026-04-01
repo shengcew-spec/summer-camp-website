@@ -64,6 +64,60 @@
         .gallery-item { height: 180px; border-radius: 10px; overflow: hidden; }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
 
+        .mentor-flex {
+    display: flex;
+    align-items: center; /* 垂直居中对齐 */
+    gap: 50px;           /* 左右间距 */
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.mentor-image {
+    flex: 0 0 350px;    /* 固定图片容器宽度为 350px */
+}
+
+.mentor-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px; /* 圆角 */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* 柔和阴影 */
+}
+
+.mentor-text {
+    flex: 1;            /* 文字占据剩余空间 */
+}
+
+.mentor-text h3 {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-top: 0;
+    border-bottom: 2px solid #f1f1f1;
+    padding-bottom: 10px;
+}
+
+.mentor-text p {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* 移动端适配：手机上图片在上，文字在下 */
+@media (max-width: 850px) {
+    .mentor-flex {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    .mentor-image {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+
+
         /* Contact Section */
         .contact-box { text-align: center; max-width: 600px; margin: 0 auto; background: #fff; padding: 40px; border-radius: 15px; border: 1px solid #eee; }
 
@@ -87,6 +141,7 @@
             <a href="#about">项目介绍 / About</a>
             <a href="#recruitment">招募 / Recruitment</a>
             <a href="#impact">成果 / Impact</a>
+            <a href="#mentors">导师 / Mentors</a>
             <a href="#contact">联系 / Contact</a>
         </div>
     </div>
@@ -204,6 +259,24 @@
     </div>
 </section>
 
+<section id="mentors" class="container">
+    <div class="section-title">
+        <span>Project Mentors</span>
+        <h2>导师简介</h2>
+    </div>
+    <div class="mentor-flex">
+        <div class="mentor-image">
+            <img src="mentor-photo.jpg" alt="Mentor Name">
+        </div>
+        <div class="mentor-text">
+            <h3>导师姓名 / Name</h3>
+            <p>这里输入导师的详细介绍文字。可以包括学术背景、在 CloudRiver 项目中负责的领域，以及对媒介素养或 AI 教育的个人见解。建议字数在 150-300 字之间，以保持视觉平衡。</p>
+            <p>第二段文字（可选）：可以介绍过往的支教经历或研究成果。保持专业且富有亲和力的语调。</p>
+        </div>
+    </div>
+</section>
+
+    
 <section id="contact" class="container">
     <div class="section-title">
         <span>Contact Us</span>
